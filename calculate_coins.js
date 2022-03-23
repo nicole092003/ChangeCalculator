@@ -13,8 +13,7 @@ const calculate_coins = function()
     let cents = parseInt($("cents").value);
 
     coins.forEach(function(value, key){
-        let numberOfCoins = Math.floor(cents / value);
-        $(key).value = numberOfCoins;
+        $(key).value = Math.floor(cents / value);
         cents = cents % value;
     });
 }
