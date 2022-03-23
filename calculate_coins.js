@@ -1,33 +1,22 @@
-var $ = function (id) {
+const $ = function (id) {
     return document.getElementById(id);
 }
 
-var calculate_click = function()
+const calculate_click = function()
 {  
-    var quartersValue = 25;
-    var dimesValue = 10;
-    var nickelsValue = 5;
-    var penniesValue = 1;
+    const coins = new Map();
+    coins.set("quarters", 25);
+    coins.set("dimes", 10);
+    coins.set("nickels", 5);
+    coins.set("pennies", 1);
 
-    var centsString = $("cents").value;
-    var cents = parseFloat(centsString);
+    let cents = parseInt($("cents").value);
 
-    var quarters = parseInt(cents / quartersValue);
-    cents = cents - (quarters * quartersValue);
-    $("quarters").value = quarters;
-
-    var dimes = parseInt(cents / dimesValue);
-    cents = cents - (dimes * dimesValue);
-    $("dimes").value = dimes;
-
-    var nickels = parseInt(cents / nickelsValue);
-    cents = cents - (nickels * nickelsValue);
-    $("nickels").value = nickels;
-
-    var pennies = parseInt(cents / penniesValue);
-    cents = cents - (pennies * penniesValue);
-    $("pennies").value = pennies;
-     
+    coins.forEach(function(value, key){
+        let numberOfCoins = Math.floor(cents / value);
+        $(key).value = numberOfCoins;
+        cents = cents - (numberOfCoins * value);
+    });
 }
 
 $("calculate").addEventListener("click", calculate_click);
