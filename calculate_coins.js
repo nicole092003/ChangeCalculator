@@ -2,7 +2,7 @@ const $ = function (id) {
     return document.getElementById(id);
 }
 
-const calculate_click = function()
+const calculate_coins = function()
 {  
     const coins = new Map();
     coins.set("quarters", 25);
@@ -15,8 +15,8 @@ const calculate_click = function()
     coins.forEach(function(value, key){
         let numberOfCoins = Math.floor(cents / value);
         $(key).value = numberOfCoins;
-        cents = cents - (numberOfCoins * value);
+        cents = cents % value;
     });
 }
 
-$("calculate").addEventListener("click", calculate_click);
+$("calculate").addEventListener("click", calculate_coins);
