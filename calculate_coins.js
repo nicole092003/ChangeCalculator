@@ -3,30 +3,30 @@ var $ = function (id) {
 }
 
 var calculate_click = function()
-{  
-    var quartersValue = 25;
-    var dimesValue = 10;
-    var nickelsValue = 5;
-    var penniesValue = 1;
-
+{ 
     var cents = parseInt($("cents").value);
 
-    var quarters = Math.floor(cents / quartersValue);
-    cents = cents % quartersValue;
+    var coins = new Map();
+    coins.set("quarters", 25);
+    coins.set("dimes", 10);
+    coins.set("nickels", 5);
+    coins.set("pennies", 1);
+
+    var quarters = Math.floor(cents / coins.get("quarters"));
+    cents = cents % coins.get("quarters");
     $("quarters").value = quarters;
 
-    var dimes = Math.floor(cents / dimesValue);
-    cents = cents % dimesValue;
+    var dimes = Math.floor(cents / coins.get("dimes"));
+    cents = cents % coins.get("dimes");
     $("dimes").value = dimes;
 
-    var nickels = Math.floor(cents / nickelsValue);
-    cents = cents % nickelsValue;
+    var nickels = Math.floor(cents / coins.get("nickels"));
+    cents = cents % coins.get("nickels");
     $("nickels").value = nickels;
 
-    var pennies = Math.floor(cents / penniesValue);
-    cents = cents % penniesValue;
+    var pennies = Math.floor(cents / coins.get("pennies"));
+    cents = cents % coins.get("pennies");
     $("pennies").value = pennies;
-     
 }
 
 $("calculate").addEventListener("click", calculate_click);
