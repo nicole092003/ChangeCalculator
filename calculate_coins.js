@@ -11,20 +11,20 @@ var calculate_click = function()
 
     var cents = parseInt($("cents").value);
 
-    var quarters = parseInt(cents / quartersValue);
-    cents = cents - (quarters * quartersValue);
+    var quarters = Math.floor(cents / quartersValue);
+    cents = cents % quartersValue;
     $("quarters").value = quarters;
 
-    var dimes = parseInt(cents / dimesValue);
-    cents = cents - (dimes * dimesValue);
+    var dimes = Math.floor(cents / dimesValue);
+    cents = cents % dimesValue;
     $("dimes").value = dimes;
 
-    var nickels = parseInt(cents / nickelsValue);
-    cents = cents - (nickels * nickelsValue);
+    var nickels = Math.floor(cents / nickelsValue);
+    cents = cents % nickelsValue;
     $("nickels").value = nickels;
 
-    var pennies = parseInt(cents / penniesValue);
-    cents = cents - (pennies * penniesValue);
+    var pennies = Math.floor(cents / penniesValue);
+    cents = cents % penniesValue;
     $("pennies").value = pennies;
      
 }
