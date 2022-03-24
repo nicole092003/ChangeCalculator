@@ -9,8 +9,7 @@ var calculate_click = function()
     var nickelsValue = 5;
     var penniesValue = 1;
 
-    var centsString = $("cents").value;
-    var cents = parseInt(centsString);
+    var cents = parseInt($("cents").value);
 
     var quarters = parseInt(cents / quartersValue);
     cents = cents - (quarters * quartersValue);
