@@ -7,6 +7,7 @@ var calculate_click = function()
     var cents = parseInt($("cents").value);
 
     var coins = new Map();
+    coins.set("dollars", 100);
     coins.set("quarters", 25);
     coins.set("dimes", 10);
     coins.set("nickels", 5);
